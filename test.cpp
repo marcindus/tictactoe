@@ -23,7 +23,7 @@ std::string toString(Board& br)
     return stm.str();
 }
 
-Board build_empty_board(size_t size_x, size_t size_y)
+Board buildEmptyBoard(size_t size_x, size_t size_y)
 {
     std::vector<std::vector<char>> vec(size_x, std::vector<char>(size_y, '.'));
     return vec;
@@ -35,20 +35,23 @@ bool checkIfNumberInRow(std::vector<char>& input)
     return false;
 }
 
+
+void getDiagonals(){}
+
 struct BoardTest : public ::testing::Test
 {
-    Board empty_board_3x3 = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+    Board emptyBoard3x3  = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
 };
 
 TEST_F(BoardTest, BoardSghouldDoSomething)
 {
-    Board br = build_empty_board(3, 3);
+    Board br = buildEmptyBoard(3, 3);
     std::cout << toString(br);
 
-    EXPECT_EQ(br, empty_board_3x3);
+    EXPECT_EQ(br, emptyBoard3x3 );
 }
 
 TEST_F(BoardTest, shouldReturnTrueIf3InLine)
 {
-    EXPECT_EQ(true, checkIfNumberInRow(empty_board_3x3[0]));
+    EXPECT_EQ(true, checkIfNumberInRow(emptyBoard3x3 [0]));
 }
