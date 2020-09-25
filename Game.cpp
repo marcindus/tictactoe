@@ -21,10 +21,7 @@ void Game::GameLoop()
 
 bool Game::IsEndGame()
 {
-    if (board_->checkWinCondition())
-    {
-        return true;
-    }
+    return board_->checkWinCondition();
 }
 
 void Game::NextTurn()
