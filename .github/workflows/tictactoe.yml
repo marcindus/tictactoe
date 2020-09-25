@@ -8,14 +8,14 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@master
-    - name: mkdir tictactoe/build
-      run: mkdir tictactoe/build
+    - name: mkdir build
+      run: mkdir build
     - name: Compile
-      working-directory: tictactoe/build
+      working-directory: build
       run: |
         cmake ..
         make
     - name: Run tests
-      working-directory: tictactoe/build 
+      working-directory: build 
       run: ctest -V
 
