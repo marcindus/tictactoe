@@ -8,6 +8,6 @@ GUI::GUI()
 
 void GUI::PrintInitialInformation()
 {
-    std::cout << ConstString::separator << "\n";
+    std::cout << SEPARATOR << "\n";
     std::cout << "Welcome in Tic-Tac-Toe game. \n";
 }

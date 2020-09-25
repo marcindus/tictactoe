@@ -1,9 +1,7 @@
+#pragma once
 #include <string>
 
-namespace ConstString
-{
-    std::string separator("*", 35);
-}
+static const std::string SEPARATOR;
 
 class GUI
 {
