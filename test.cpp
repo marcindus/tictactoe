@@ -10,10 +10,11 @@ bool checkIfNumberInRow(std::vector<char>& input)
     return true;
 }
 
+void getDiagonal(){}
+
 struct BoardTest : public ::testing::Test
 {
-//    std::string emptyBoard3x3String = ". . .\n. . .\n. . .";
-    std::string emptyBoard3x3String = "";
+    std::string emptyBoard3x3String = ". . . \n. . . \n. . . \n";
 };
 
 TEST_F(BoardTest, BoardShouldDoSomething)

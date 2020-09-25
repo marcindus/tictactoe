@@ -1,9 +1,11 @@
 #include "Board.hpp"
 #include <vector>
 
-Board::Board(size_t sizeX, size_t sizeY)
+#include <iostream>
+
+Board::Board(size_t sizeX_, size_t sizeY_) : sizeX(sizeX_), sizeY(sizeY_)
 {
-    std::vector<std::vector<char>> boardVec_(sizeX, std::vector<char>(sizeY, '.'));
+    boardVec_ = std::vector<std::vector<char>>(sizeX_, std::vector<char>(sizeY_, '.'));
 }
 
 

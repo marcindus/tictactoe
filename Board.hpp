@@ -7,7 +7,7 @@
 class Board
 {
 public:
-    Board(size_t size_x, size_t size_y);
+    Board(size_t sizeX_, size_t sizeY_);
     std::string toString();
 
 private:
