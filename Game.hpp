@@ -5,7 +5,7 @@
 class Game
 {
 public:
-
+Game();
 private:
 std::shared_ptr<Board> board_;
 std::shared_ptr<GUI> gui_;
