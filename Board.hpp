@@ -1,10 +1,14 @@
 #pragma once
+
+#include <sstream>
+#include <string>
 #include <vector>
 
 class Board
 {
 public:
     Board(size_t size_x, size_t size_y);
+    std::string toString();
 
 private:
     size_t sizeX = 0;

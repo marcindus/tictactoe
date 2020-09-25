@@ -1,26 +1,8 @@
 
 #include <vector>
-#include <sstream>
-#include <string>
-
 #include "Game.hpp"
 #include "Board.hpp"
 #include "gtest/gtest.h"
-
-std::string toString(Board& br)
-{
-    std::stringstream stm;
-    for (auto& row : br)
-    {
-        for (auto& col : row)
-        {
-            stm << col << " ";
-        }
-        stm << std::endl;
-    }
-    return stm.str();
-}
-
 
 bool checkIfNumberInRow(std::vector<char>& input)
 {
@@ -28,23 +10,20 @@ bool checkIfNumberInRow(std::vector<char>& input)
     return true;
 }
 
-
-void getDiagonals(){}
-
 struct BoardTest : public ::testing::Test
 {
-    Board emptyBoard3x3  = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+//    std::string emptyBoard3x3String = ". . .\n. . .\n. . .";
+    std::string emptyBoard3x3String = "";
 };
 
 TEST_F(BoardTest, BoardShouldDoSomething)
 {
-    Board br = buildEmptyBoard(3, 3);
-    std::cout << toString(br);
-
-    EXPECT_EQ(br, emptyBoard3x3 );
+    Board br(3, 3);
+    EXPECT_EQ(br.toString(), emptyBoard3x3String);
 }
 
 TEST_F(BoardTest, shouldReturnTrueIf3InLine)
 {
-    EXPECT_EQ(true, checkIfNumberInRow(emptyBoard3x3[0]));
+    std::vector<char> vec{'x','x','x'};
+    EXPECT_EQ(true, checkIfNumberInRow(vec));
 }
