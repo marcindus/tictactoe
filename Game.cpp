@@ -6,6 +6,11 @@ Game::Game()
     gui_ = std::make_shared<GUI>(board_);
 }
 
+void Game::Init()
+{
+    // mode_ = gui_->GetGameMode();
+}
+
 void Game::GameLoop()
 {
     while (!IsEndGame())
@@ -24,8 +29,16 @@ bool Game::IsEndGame()
 
 void Game::NextTurn()
 {
-    // gui_->GetNextMove(currentPlayer_);
+    if (mode_ == GameMode::SINGLE_PLAYER && currentPlayer_ == 'o')
+    {
+        // board_->MakeBestMove();
+    }
+    else
+    {
+        // gui_->GetNextMove(currentPlayer_);
+    }
     // UpdateCurrentPlayer();
+    // gui_->update();
 }
 
 void Game::UpdateCurrentPlayer()
