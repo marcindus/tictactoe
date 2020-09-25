@@ -43,7 +43,7 @@ struct BoardTest : public ::testing::Test
     Board emptyBoard3x3  = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
 };
 
-TEST_F(BoardTest, BoardSghouldDoSomething)
+TEST_F(BoardTest, BoardShouldDoSomething)
 {
     Board br = buildEmptyBoard(3, 3);
     std::cout << toString(br);
