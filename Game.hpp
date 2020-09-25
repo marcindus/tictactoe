@@ -11,8 +11,9 @@ void GameLoop();
 private:
 bool IsEndGame();
 void NextTurn();
+void UpdateCurrentPlayer();
 
 std::shared_ptr<Board> board_;
 std::shared_ptr<GUI> gui_;
-char currentPlayer = 'x';
+char currentPlayer_ = 'x';
 };

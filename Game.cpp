@@ -16,11 +16,26 @@ void Game::GameLoop()
 
 bool Game::IsEndGame()
 {
-
-    return false;
+    if (board_->checkWinCondition())
+    {
+        return true;
+    }
 }
 
 void Game::NextTurn()
 {
-   // gui_->GetNextMove(currentPlayer);
+    // gui_->GetNextMove(currentPlayer_);
+    // UpdateCurrentPlayer();
+}
+
+void Game::UpdateCurrentPlayer()
+{
+    if (currentPlayer_ == 'x')
+    {
+        currentPlayer_ = 'o';
+    }
+    else
+    {
+        currentPlayer_ = 'x';
+    }
 }
