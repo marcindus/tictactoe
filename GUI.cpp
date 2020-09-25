@@ -1,7 +1,7 @@
 #include "GUI.hpp"
 #include <iostream>
 
-GUI::GUI()
+GUI::GUI(std::shared_ptr<Board> board) : board_(board)
 {
     PrintInitialInformation();
 }
