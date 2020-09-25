@@ -9,8 +9,6 @@
 
 using Board = std::vector<std::vector<char>>;
 
-
-
 std::string toString(Board& br)
 {
     std::stringstream stm;
@@ -27,10 +25,15 @@ std::string toString(Board& br)
 
 Board build_empty_board(size_t size_x, size_t size_y)
 {
-    std::vector<std::vector<char> > vec( size_x , std::vector<char> (size_y, '.'));
+    std::vector<std::vector<char>> vec(size_x, std::vector<char>(size_y, '.'));
     return vec;
 }
 
+bool checkIfNumberInRow(std::vector<char>& input)
+{
+    std::cout << input[0] << "\n";
+    return false;
+}
 
 struct BoardTest : public ::testing::Test
 {
@@ -39,8 +42,13 @@ struct BoardTest : public ::testing::Test
 
 TEST_F(BoardTest, BoardSghouldDoSomething)
 {
-    Board br = build_empty_board(3,3);
+    Board br = build_empty_board(3, 3);
     std::cout << toString(br);
 
     EXPECT_EQ(br, empty_board_3x3);
+}
+
+TEST_F(BoardTest, shouldReturnTrueIf3InLine)
+{
+    EXPECT_EQ(true, checkIfNumberInRow(empty_board_3x3[0]));
 }
