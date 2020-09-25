@@ -1,0 +1,21 @@
+name: tictactoe
+
+on: [push, pull_request]
+
+jobs:
+  tictactoe:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@master
+    - name: mkdir tictactoe/build
+      run: mkdir tictactoe/build
+    - name: Compile
+      working-directory: tictactoe/build
+      run: |
+        cmake ..
+        make
+    - name: Run tests
+      working-directory: tictactoe/build 
+      run: ctest -V
+
