@@ -9,6 +9,7 @@ class GUI
 {
 public:
     GUI(std::shared_ptr<Board> board);
+    void update();
 
 private:
     void PrintInitialInformation();
