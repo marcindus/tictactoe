@@ -9,5 +9,5 @@ public:
 private:
     size_t sizeX = 0;
     size_t sizeY = 0;
-    std::vector<std::vector<char>> board_;
+    std::vector<std::vector<char>> boardVec_;
 };
