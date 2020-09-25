@@ -10,7 +10,7 @@ void Game::GameLoop()
 {
     while (!IsEndGame())
     {
-        /* code */
+        NextTurn();
     }
 }
 
@@ -18,4 +18,9 @@ bool Game::IsEndGame()
 {
 
     return false;
+}
+
+void Game::NextTurn()
+{
+   // gui_->GetNextMove(currentPlayer);
 }
