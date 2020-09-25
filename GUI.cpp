@@ -1,6 +1,13 @@
 #include "GUI.hpp"
+#include <iostream>
 
 GUI::GUI()
 {
-    // here init console information
+    PrintInitialInformation();
+}
+
+void GUI::PrintInitialInformation()
+{
+    std::cout << ConstString::separator << "\n";
+    std::cout << "Welcome in Tic-Tac-Toe game. \n";
 }
