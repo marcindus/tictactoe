@@ -8,6 +8,7 @@ set(CMAKE_BUILD_TYPE Debug)
 list(APPEND TICTACTOE_SOURCES
     Board.cpp
     Game.cpp
+    GUI.cpp
     )
 
 add_library(${PROJECT_NAME}-lib STATIC ${TICTACTOE_SOURCES})
