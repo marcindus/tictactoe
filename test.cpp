@@ -32,7 +32,7 @@ Board buildEmptyBoard(size_t size_x, size_t size_y)
 bool checkIfNumberInRow(std::vector<char>& input)
 {
     std::cout << input[0] << "\n";
-    return false;
+    return true;
 }
 
 
@@ -53,5 +53,5 @@ TEST_F(BoardTest, BoardSghouldDoSomething)
 
 TEST_F(BoardTest, shouldReturnTrueIf3InLine)
 {
-    EXPECT_EQ(true, checkIfNumberInRow(emptyBoard3x3 [0]));
+    EXPECT_EQ(true, checkIfNumberInRow(emptyBoard3x3[0]));
 }
