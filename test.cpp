@@ -39,7 +39,7 @@ struct BoardTest : public ::testing::Test
 
 TEST_F(BoardTest, BoardSghouldDoSomething)
 {
-    Board br = build_empty_board(4,3);
+    Board br = build_empty_board(3,3);
     std::cout << toString(br);
 
     EXPECT_EQ(br, empty_board_3x3);
