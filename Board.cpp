@@ -1,5 +1,6 @@
 #include "Board.hpp"
 #include <vector>
+#include <algorithm>
 
 #include <iostream>
 
@@ -7,7 +8,6 @@ Board::Board(size_t sizeX_, size_t sizeY_) : sizeX(sizeX_), sizeY(sizeY_)
 {
     boardVec_ = std::vector<std::vector<char>>(sizeX_, std::vector<char>(sizeY_, '.'));
 }
-
 
 std::string Board::toString()
 {
@@ -21,4 +21,22 @@ std::string Board::toString()
         stm << std::endl;
     }
     return stm.str();
+}
+
+bool Board::checkIfNumberInRow(std::vector<char>& input, char x, int number)
+{
+    std::string s;
+    std::string toFind(number, x);
+    std::transform(input.begin(), input.end(), std::back_inserter(s), [](char c) { return c; });
+    size_t found = s.find(toFind);
+    if (found != std::string::npos)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool Board::checkWinCondition()
+{
+    return false;
 }
