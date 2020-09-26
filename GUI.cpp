@@ -1,4 +1,5 @@
 #include "GUI.hpp"
+#include "Game.hpp"
 #include <string>
 #include <iostream>
 
@@ -24,12 +25,27 @@ void GUI::GetNextMove(char player)
     size_t y = 0;
 
     bool status = false;
-    while(!status)
+    while (!status)
     {
         std::cout << "Player " << player << "Enter next move: " << std::endl << "x : " << std::endl;
         std::cin >> x;
         std::cout << "y :";
         std::cin >> y;
-        status = board_->move(player,x,y);
+        status = board_->move(player, x, y);
     }
+}
+
+GameMode GUI::GetGameMode()
+{
+    size_t mode = 0;
+    std::cout << "Please select game mode:\n"
+                 "1) Single player (with AI)\n"
+                 "2) Multiplayer (with second person)\n";
+    while (mode < static_cast<size_t>(GameMode::SINGLE_PLAYER) || 
+           mode > static_cast<size_t>(GameMode::MULTI_PLAYER))
+    {
+        std::cin >> mode;
+    }
+
+    return static_cast<GameMode>(mode);
 }

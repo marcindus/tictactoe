@@ -4,8 +4,8 @@
 #include <memory>
 
 enum class GameMode {
-    SINGLE_PLAYER = 0,
-    MULTI_PLAYER = 1
+    SINGLE_PLAYER = 1,
+    MULTI_PLAYER = 2
 };
 
 

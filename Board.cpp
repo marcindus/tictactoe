@@ -38,25 +38,46 @@ bool Board::checkIfNumberInRow(std::vector<char>& input, char x, int number)
 
 bool Board::checkWinCondition()
 {
+    for (const auto& row : boardVec_)
+    {
+        if (std::all_of(row.begin(), row.end(), [](const char c) { return c == 'x'; }))
+        {
+            // print win o
+            return true;
+        }
+        else if (std::all_of(row.begin(), row.end(), [](const char c) { return c == 'o'; }))
+        {
+            // print win o
+            return true;
+        }
+    }
+
+    if (boardVec_[0][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[2][2] == 'x')
+    {
+        // print win x
+        return true;
+    }
+    else if (boardVec_[0][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[2][2] == 'o')
+    {
+        // print win o
+        return true;
+    }
+
     return false;
 }
 
 std::vector<std::vector<char>> Board::getDiagonals()
 {
-    return {{'x','x'}};
+    return {{'x', 'x'}};
 }
 
 bool Board::move(char player, size_t x, size_t y)
 {
-    if(x > sizeX or y > sizeY or boardVec_[x][y] != '.')
+    if (x > sizeX or y > sizeY or boardVec_[x][y] != '.')
     {
         return false;
-    } 
+    }
 
     boardVec_[x][y] = player;
     return true;
 }
-
-
-
-

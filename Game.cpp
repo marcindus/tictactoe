@@ -8,7 +8,8 @@ Game::Game()
 
 void Game::Init()
 {
-    // mode_ = gui_->GetGameMode();
+    mode_ = gui_->GetGameMode();
+    GameLoop();
 }
 
 void Game::GameLoop()
@@ -32,10 +33,10 @@ void Game::NextTurn()
     }
     else
     {
-        // gui_->GetNextMove(currentPlayer_);
+        gui_->GetNextMove(currentPlayer_);
     }
-    // UpdateCurrentPlayer();
-    // gui_->update();
+    UpdateCurrentPlayer();
+    gui_->update();
 }
 
 void Game::UpdateCurrentPlayer()
