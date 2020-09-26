@@ -8,19 +8,24 @@ Game::Game()
 
 void Game::Init()
 {
-    mode_ = gui_->GetGameMode();
     GameLoop();
 }
 
 void Game::GameLoop()
 {
-    TurnResult result = TurnResult::NO_RESULT;
-    while (result == TurnResult::NO_RESULT)
+    do
     {
-        NextTurn();
-        result = IsEndGame();
-    }
-    gui_->PrintResult(result);
+        board_->Clear();
+        mode_ = gui_->GetGameMode();
+        TurnResult result = TurnResult::NO_RESULT;
+        while (result == TurnResult::NO_RESULT)
+        {
+            NextTurn();
+            result = IsEndGame();
+        }
+        gui_->PrintResult(result);
+        bool again = gui_->PrintPlayAgainQuestion();
+    } while (again);
 }
 
 TurnResult Game::IsEndGame()

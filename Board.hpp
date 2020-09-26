@@ -20,6 +20,7 @@ public:
     std::vector<std::vector<char>> GetBoardVec() { return boardVec_; }
     TurnResult checkWinCondition();
     bool move(char player, size_t x, size_t y);
+    void Clear();
 
 private:
     size_t sizeX = 0;

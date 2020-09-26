@@ -98,3 +98,9 @@ bool Board::IsColumnsAll(char player)
             || boardVec_[0][1] == player && boardVec_[1][1] == player && boardVec_[2][1] == player
             || boardVec_[0][2] == player && boardVec_[1][2] == player && boardVec_[2][2] == player);
 }
+
+
+void Board::Clear()
+{
+    
+}
