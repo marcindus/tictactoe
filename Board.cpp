@@ -103,3 +103,86 @@ void Board::Clear()
 {
     boardVec_ = std::vector<std::vector<char>>(3, std::vector<char>(3, '.'));
 }
+
+void Board::MakeBestMove(char player)
+{
+    Scores bestScore = Scores::NEG_INFINITY;
+    std::pair<int, int> move;
+    for (size_t i = 0; i < 3; i++)
+    {
+        for (size_t j = 0; j < 3; j++)
+        {
+            if (boardVec_[i][j] == '.')
+            {
+                boardVec_[i][j] = player;
+                Scores score = MinMax(0, false);
+                boardVec_[i][j] = '.';
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    move = {i, j};
+                }
+            }
+        }
+    }
+    boardVec_[move.first][move.second] = player;
+}
+
+Scores Board::MinMax(int depth, bool isMaximizing)
+{
+    TurnResult result = checkWinCondition();
+    if (result != TurnResult::NO_RESULT)
+    {
+        if (result == TurnResult::WIN_O)
+        {
+            return Scores::WIN_O;
+        }
+        else if (result == TurnResult::WIN_X)
+        {
+            return Scores::WIN_X;
+        }
+        else
+        {
+            return Scores::DRAW;
+        }
+    }
+
+    if (isMaximizing)
+    {
+        Scores bestScore = Scores::NEG_INFINITY;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                // Is the spot available?
+                if (boardVec_[i][j] == '.')
+                {
+                    boardVec_[i][j] = 'o';
+                    Scores score = MinMax(depth + 1, false);
+                    boardVec_[i][j] = '.';
+                    bestScore = std::max(score, bestScore);
+                }
+            }
+        }
+        return bestScore;
+    }
+    else
+    {
+        Scores bestScore = Scores::POS_INFINITY;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                // Is the spot available?
+                if (boardVec_[i][j] == '.')
+                {
+                    boardVec_[i][j] = 'x';
+                    Scores score = MinMax(depth + 1, true);
+                    boardVec_[i][j] = '.';
+                    bestScore = std::min(score, bestScore);
+                }
+            }
+        }
+        return bestScore;
+    }
+}

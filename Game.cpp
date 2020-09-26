@@ -38,7 +38,7 @@ void Game::NextTurn()
 {
     if (mode_ == GameMode::SINGLE_PLAYER && currentPlayer_ == 'o')
     {
-        // board_->MakeBestMove();
+        board_->MakeBestMove(currentPlayer_);
     }
     else
     {

@@ -10,7 +10,7 @@ GUI::GUI(std::shared_ptr<Board> board) : board_(board)
 
 void GUI::PrintInitialInformation()
 {
-    std::cout << SEPARATOR << "\n";
+ //   std::cout << SEPARATOR << "\n";
     std::cout << "Welcome in Tic-Tac-Toe game. \n";
 }
 
@@ -51,7 +51,7 @@ GameMode GUI::GetGameMode()
 
 void GUI::PrintResult(TurnResult result)
 {
-    // std::cout << SEPARATOR << '\n';
+ //   std::cout << SEPARATOR << '\n';
     std::cout << "End of the game\n";
     if (result == TurnResult::DRAW)
     {

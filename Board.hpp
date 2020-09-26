@@ -12,6 +12,15 @@ enum class TurnResult
     NO_RESULT = 3
 };
 
+enum class Scores
+{
+    NEG_INFINITY = -99,
+    POS_INFINITY = 99,
+    WIN_O = 10,
+    WIN_X = -10,
+    DRAW = 0
+};
+
 class Board
 {
 public:
@@ -21,6 +30,7 @@ public:
     TurnResult checkWinCondition();
     bool move(char player, size_t x, size_t y);
     void Clear();
+    void MakeBestMove(char player);
 
 private:
     size_t sizeX = 0;
@@ -30,4 +40,6 @@ private:
     bool IsDiagonalsAll(char player);
     bool IsColumnsAll(char player);
     std::vector<std::vector<char>> getDiagonals();
+    Scores MinMax(int depth, bool isMaximizing);
+
 };
