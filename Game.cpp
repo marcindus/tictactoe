@@ -24,8 +24,8 @@ void Game::GameLoop()
             result = IsEndGame();
         }
         gui_->PrintResult(result);
-        bool again = gui_->PrintPlayAgainQuestion();
-    } while (again);
+       // bool again = gui_->PrintPlayAgainQuestion();
+    } while (true/*again*/);
 }
 
 TurnResult Game::IsEndGame()
