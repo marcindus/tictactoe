@@ -40,3 +40,23 @@ bool Board::checkWinCondition()
 {
     return false;
 }
+
+std::vector<std::vector<char>> Board::getDiagonals()
+{
+    return {{'x','x'}};
+}
+
+bool Board::move(char player, size_t x, size_t y)
+{
+    if(x > sizeX or y > sizeY or boardVec_[x][y] != '.')
+    {
+        return false;
+    } 
+
+    boardVec_[x][y] = player;
+    return true;
+}
+
+
+
+
