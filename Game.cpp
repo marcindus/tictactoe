@@ -13,6 +13,7 @@ void Game::Init()
 
 void Game::GameLoop()
 {
+    bool again = false;
     do
     {
         board_->Clear();
@@ -24,8 +25,8 @@ void Game::GameLoop()
             result = IsEndGame();
         }
         gui_->PrintResult(result);
-       // bool again = gui_->PrintPlayAgainQuestion();
-    } while (true/*again*/);
+        again = gui_->PrintPlayAgainQuestion();
+    } while (again);
 }
 
 TurnResult Game::IsEndGame()

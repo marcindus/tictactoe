@@ -15,6 +15,7 @@ public:
     void GetNextMove(char player);
     GameMode GetGameMode();
     void PrintResult(TurnResult result);
+    bool PrintPlayAgainQuestion();
 
 private:
     void PrintInitialInformation();

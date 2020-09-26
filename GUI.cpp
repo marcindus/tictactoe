@@ -27,7 +27,7 @@ void GUI::GetNextMove(char player)
     bool status = false;
     while (!status)
     {
-        std::cout << "Player " << player << "Enter next move: " << std::endl << "x : " << std::endl;
+        std::cout << "Player " << player << " Enter next move: " << std::endl << "x : " << std::endl;
         std::cin >> x;
         std::cout << "y :";
         std::cin >> y;
@@ -41,8 +41,7 @@ GameMode GUI::GetGameMode()
     std::cout << "Please select game mode:\n"
                  "1) Single player (with AI)\n"
                  "2) Multiplayer (with second person)\n";
-    while (mode < static_cast<size_t>(GameMode::SINGLE_PLAYER) || 
-           mode > static_cast<size_t>(GameMode::MULTI_PLAYER))
+    while (mode < static_cast<size_t>(GameMode::SINGLE_PLAYER) || mode > static_cast<size_t>(GameMode::MULTI_PLAYER))
     {
         std::cin >> mode;
     }
@@ -52,7 +51,7 @@ GameMode GUI::GetGameMode()
 
 void GUI::PrintResult(TurnResult result)
 {
-    //std::cout << SEPARATOR << '\n';
+    // std::cout << SEPARATOR << '\n';
     std::cout << "End of the game\n";
     if (result == TurnResult::DRAW)
     {
@@ -65,5 +64,24 @@ void GUI::PrintResult(TurnResult result)
     else
     {
         std::cout << "O player won!\n";
+    }
+}
+
+bool GUI::PrintPlayAgainQuestion()
+{
+    std::cout << "Do you want to play again?\n"
+              << "Type (y)es or (n)o\n";
+    char cmd;
+    std::cin >> cmd;
+
+    if (cmd == 'y')
+    {
+        std::cout << "Let's play again!\n";
+        return true;
+    }
+    else
+    {
+        std::cout << "Stop the game\n";
+        return false;
     }
 }

@@ -99,8 +99,7 @@ bool Board::IsColumnsAll(char player)
             || boardVec_[0][2] == player && boardVec_[1][2] == player && boardVec_[2][2] == player);
 }
 
-
 void Board::Clear()
 {
-    
+    boardVec_ = std::vector<std::vector<char>>(3, std::vector<char>(3, '.'));
 }
