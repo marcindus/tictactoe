@@ -5,7 +5,7 @@
 
 enum class GameMode;
 
-static const std::string SEPARATOR;
+static const std::string SEPARATOR("*", 35);
 
 class GUI
 {
@@ -14,6 +14,7 @@ public:
     void update();
     void GetNextMove(char player);
     GameMode GetGameMode();
+    void PrintResult(TurnResult result);
 
 private:
     void PrintInitialInformation();

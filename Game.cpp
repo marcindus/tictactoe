@@ -14,13 +14,15 @@ void Game::Init()
 
 void Game::GameLoop()
 {
-    while (!IsEndGame())
+    TurnResult result = TurnResult::NO_RESULT;
+    while (result == TurnResult::NO_RESULT)
     {
         NextTurn();
+        result = IsEndGame();
     }
 }
 
-bool Game::IsEndGame()
+TurnResult Game::IsEndGame()
 {
     return board_->checkWinCondition();
 }

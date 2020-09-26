@@ -4,13 +4,21 @@
 #include <string>
 #include <vector>
 
+enum class TurnResult
+{
+    WIN_X = 0,
+    WIN_O = 1,
+    DRAW = 2,
+    NO_RESULT = 3
+};
+
 class Board
 {
 public:
     Board(size_t sizeX_, size_t sizeY_);
     std::string toString();
     std::vector<std::vector<char>> GetBoardVec() { return boardVec_; }
-    bool checkWinCondition();
+    TurnResult checkWinCondition();
     bool move(char player, size_t x, size_t y);
 
 private:

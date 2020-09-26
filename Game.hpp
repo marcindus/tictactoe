@@ -16,7 +16,7 @@ Game();
 void Init();
 void GameLoop();
 private:
-bool IsEndGame();
+TurnResult IsEndGame();
 void NextTurn();
 void UpdateCurrentPlayer();
 

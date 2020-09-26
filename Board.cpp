@@ -36,34 +36,41 @@ bool Board::checkIfNumberInRow(std::vector<char>& input, char x, int number)
     return false;
 }
 
-bool Board::checkWinCondition()
+TurnResult Board::checkWinCondition()
 {
+    size_t emptyRowCnt = 3;
     for (const auto& row : boardVec_)
     {
         if (std::all_of(row.begin(), row.end(), [](const char c) { return c == 'x'; }))
         {
-            // print win o
-            return true;
+            return TurnResult::WIN_X;
         }
         else if (std::all_of(row.begin(), row.end(), [](const char c) { return c == 'o'; }))
         {
-            // print win o
-            return true;
+            return TurnResult::WIN_O;
+        }
+        else if (std::any_of(row.begin(), row.end(), [](const char c) { return c == '.'; }))
+        {
+            emptyRowCnt--;
         }
     }
 
-    if (boardVec_[0][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[2][2] == 'x')
+    if (boardVec_[0][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[2][2] == 'x'
+        || boardVec_[2][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[0][2] == 'x')
     {
-        // print win x
-        return true;
+        return TurnResult::WIN_X;
     }
-    else if (boardVec_[0][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[2][2] == 'o')
+    else if (boardVec_[0][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[2][2] == 'o'
+             || boardVec_[2][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[0][2] == 'o')
     {
-        // print win o
-        return true;
+        return TurnResult::WIN_O;
+    }
+    else if (emptyRowCnt == 0)
+    {
+        return TurnResult::DRAW;
     }
 
-    return false;
+    return TurnResult::NO_RESULT;
 }
 
 std::vector<std::vector<char>> Board::getDiagonals()

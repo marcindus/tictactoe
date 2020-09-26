@@ -49,3 +49,22 @@ GameMode GUI::GetGameMode()
 
     return static_cast<GameMode>(mode);
 }
+
+void GUI::PrintResult(TurnResult result)
+{
+    std::cout << SEPARATOR << '\n';
+    std::cout << "End of the game\n";
+    if (result == TurnResult::DRAW)
+    {
+        std::cout << "Draw\n";
+    }
+    else if (result == TurnResult::WIN_X)
+    {
+        std::cout << "X player won!\n";
+    }
+    else
+    {
+        std::cout << "O player won!\n";
+    }
+    
+}
