@@ -154,7 +154,6 @@ Scores Board::MinMax(int depth, bool isMaximizing)
         {
             for (int j = 0; j < 3; j++)
             {
-                // Is the spot available?
                 if (boardVec_[i][j] == '.')
                 {
                     boardVec_[i][j] = 'o';
@@ -173,7 +172,6 @@ Scores Board::MinMax(int depth, bool isMaximizing)
         {
             for (int j = 0; j < 3; j++)
             {
-                // Is the spot available?
                 if (boardVec_[i][j] == '.')
                 {
                     boardVec_[i][j] = 'x';

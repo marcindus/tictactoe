@@ -36,6 +36,7 @@ TurnResult Game::IsEndGame()
 
 void Game::NextTurn()
 {
+    gui_->update();
     if (mode_ == GameMode::SINGLE_PLAYER && currentPlayer_ == 'o')
     {
         board_->MakeBestMove(currentPlayer_);
@@ -45,7 +46,6 @@ void Game::NextTurn()
         gui_->GetNextMove(currentPlayer_);
     }
     UpdateCurrentPlayer();
-    gui_->update();
 }
 
 void Game::UpdateCurrentPlayer()
