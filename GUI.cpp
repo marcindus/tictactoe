@@ -52,7 +52,7 @@ GameMode GUI::GetGameMode()
 
 void GUI::PrintResult(TurnResult result)
 {
-    std::cout << SEPARATOR << '\n';
+    //std::cout << SEPARATOR << '\n';
     std::cout << "End of the game\n";
     if (result == TurnResult::DRAW)
     {
@@ -66,5 +66,4 @@ void GUI::PrintResult(TurnResult result)
     {
         std::cout << "O player won!\n";
     }
-    
 }

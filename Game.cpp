@@ -20,6 +20,7 @@ void Game::GameLoop()
         NextTurn();
         result = IsEndGame();
     }
+    gui_->PrintResult(result);
 }
 
 TurnResult Game::IsEndGame()

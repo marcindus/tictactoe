@@ -49,19 +49,16 @@ TurnResult Board::checkWinCondition()
         {
             return TurnResult::WIN_O;
         }
-        else if (std::any_of(row.begin(), row.end(), [](const char c) { return c == '.'; }))
+        else if (std::none_of(row.begin(), row.end(), [](const char c) { return c == '.'; }))
         {
             emptyRowCnt--;
         }
     }
-
-    if (boardVec_[0][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[2][2] == 'x'
-        || boardVec_[2][0] == 'x' && boardVec_[1][1] == 'x' && boardVec_[0][2] == 'x')
+    if (IsDiagonalsAll('x') || IsColumnsAll('x'))
     {
         return TurnResult::WIN_X;
     }
-    else if (boardVec_[0][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[2][2] == 'o'
-             || boardVec_[2][0] == 'o' && boardVec_[1][1] == 'o' && boardVec_[0][2] == 'o')
+    else if (IsDiagonalsAll('o') || IsColumnsAll('o'))
     {
         return TurnResult::WIN_O;
     }
@@ -87,4 +84,17 @@ bool Board::move(char player, size_t x, size_t y)
 
     boardVec_[x][y] = player;
     return true;
+}
+
+bool Board::IsDiagonalsAll(char player)
+{
+    return (boardVec_[0][0] == player && boardVec_[1][1] == player && boardVec_[2][2] == player
+            || boardVec_[2][0] == player && boardVec_[1][1] == player && boardVec_[0][2] == player);
+}
+
+bool Board::IsColumnsAll(char player)
+{
+    return (boardVec_[0][0] == player && boardVec_[1][0] == player && boardVec_[2][0] == player
+            || boardVec_[0][1] == player && boardVec_[1][1] == player && boardVec_[2][1] == player
+            || boardVec_[0][2] == player && boardVec_[1][2] == player && boardVec_[2][2] == player);
 }

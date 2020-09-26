@@ -26,5 +26,7 @@ private:
     size_t sizeY = 0;
     std::vector<std::vector<char>> boardVec_;
     bool checkIfNumberInRow(std::vector<char>& input, char x, int number);
+    bool IsDiagonalsAll(char player);
+    bool IsColumnsAll(char player);
     std::vector<std::vector<char>> getDiagonals();
 };
