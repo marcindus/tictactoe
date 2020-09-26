@@ -45,6 +45,7 @@ void Game::NextTurn()
     {
         gui_->GetNextMove(currentPlayer_);
     }
+    gui_->update();
     UpdateCurrentPlayer();
 }
 
